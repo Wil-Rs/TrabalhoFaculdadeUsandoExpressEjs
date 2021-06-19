@@ -1,0 +1,59 @@
+<%- include('./../layout/menu') %>
+
+    <div class="row mb-2" style="background-color: rgba(255,255,255, 0.5) ;">
+        <h1 class="w-100 col-10">
+            <%= title %>
+        </h1>
+        <a class="btn btn-dark h-50 col-1 mt-2" href="/gerentes/novo">+ Nova</a>
+    </div>
+
+    <table class="bg-dark w-100 table-hover">
+        <thead class="text-white m-2 text-center">
+            <tr>
+                <td class="p-2">ID</td>
+                <td>NOME</td>
+                <td>APELIDO</td>
+                <td>TELEFONE</td>
+                <td>BANCO</td>
+                <td>ACOES</td>
+            </tr>
+        </thead>
+        <tbody class="text-white mx-2 text-center p-5">
+
+            <% for(i=0; i < obj_gerentes.length; i++) {%>
+                <tr>
+                    <td class="p-2 ">
+                        <%= obj_gerentes[i].ger_id %>
+                    </td>
+                    <td>
+                        <%= obj_gerentes[i].ger_nome %>
+                    </td>
+                    <td>
+                        <%= obj_gerentes[i].ger_apelido %>
+                    </td>
+                    <td>
+                        <%= obj_gerentes[i].ger_telefone %>
+                    </td>
+                    <td>
+                        <%= obj_gerentes[i].ger_banco %>
+                    </td>
+                    <td>
+                        <a class="btn btn-success mt-2" href=<%="/gerente/editar/" + obj_gerentes[i].ger_id
+                            %>>Editar</a>
+                        <a class="btn btn-danger mt-2" href=<%="/gerente/apagar/" + obj_gerentes[i].ger_id %>>Apagar</a>
+                    </td>
+                </tr>
+                <% } %>
+
+
+        </tbody>
+        <tfoot>
+            <tr class="text-center text-dark">
+                <th colspan="7">
+                    <%= title %>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <%- include('./../layout/footer') %>

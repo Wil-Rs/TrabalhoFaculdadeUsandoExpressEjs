@@ -1,0 +1,14 @@
+Para executar o sistema instale o banco (' express_gerente.sql '),
+nele conterá 2 tabelas e alguns dados.
+
+O projeto ira rodas no porta 3000.
+
+instale os pacates com =>   npm i   ou   npm install
+
+assim que tudo instalado, execute o projeto com o comando.
+
+npm start
+
+e abra entre no navegador em http://localhost:3000
+
+e obg por todos ensinamentos passados  :)

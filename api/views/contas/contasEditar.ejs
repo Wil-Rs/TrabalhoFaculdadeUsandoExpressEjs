@@ -1,0 +1,75 @@
+<%- include('./../layout/menu') %>
+
+    <form action="/contas/gravar" method="post">
+        <div class="row">
+
+            <div class="col-5">
+                <label class="form" for="cco_id">ID</label>
+                <input value="<%= obj_contas.cco_id  %>" class="form-control" readonly type="text" name="cco_id"
+                    id="cco_id" placeholder="ID da Conta">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_nroconta">NRO CONTRA</label>
+                <input value="<%= obj_contas.cco_nroconta  %>" class="form-control " max="30" type="text"
+                    name="cco_nroconta" id="cco_nroconta" placeholder="Nro da Conta">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_tipo">TIPO</label>
+                <!-- <input value="<%= obj_contas.cco_tipo  %>" class="form-control " max="15" type="text" name="cco_tipo"
+                    id="cco_tipo" placeholder="Tipo de conta"> -->
+
+                <select class="form-control" name="cco_tipo" id="cco_tipo">
+                    <option <% if(obj_contas.cco_tipo=='CORRENTE' ) { %> selected <%}%> value="CORRENTE">CORRENTE
+                    </option>
+
+                    <option <% if(obj_contas.cco_tipo=='POUPANÇA' ) { %> selected <%}%> value="POUPANÇA">POUPANÇA
+                    </option>
+
+                    <option <% if(obj_contas.cco_tipo=='SALÁRIO' ) { %> selected <%}%> value="SALÁRIO">SALÁRIO</option>
+
+                    <option <% if(obj_contas.cco_tipo=='CONJUNTA' ) { %> selected <%}%> value="CONJUNTA">CONJUNTA
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_saldo">SALDO</label>
+                <input value="<%= obj_contas.cco_saldo  %>" class="form-control " type="text" name="cco_saldo"
+                    id="cco_saldo" placeholder="Saldo da Conta">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_abertura">ANO DE ABERTURA</label>
+                <input value="<%= obj_contas.cco_abertura  %>" class="form-control " type="number" name="cco_abertura"
+                    id="cco_abertura" placeholder="Digite o ano de abertura">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="ger_id">GERENTE</label>
+                <!-- <input value="<%= obj_contas.ger_id  %>" class="form-control " max="15" type="number" name="ger_id"
+                    id="ger_id" placeholder="ID do gerente"> -->
+
+                <select class="form-control" name="ger_id" id="ger_id">
+                    <% for( i of gerentes ) { %>
+                        <option value=" <%= i.ger_id %> " <% if(i.ger_id==obj_contas.ger_id) { %> selected <% } %> >
+                                <%= i.ger_nome %>
+                        </option>
+                        <% } %>
+                </select>
+
+            </div>
+
+            <div class="col-11 mt-3">
+                <button class="btn btn-success" type="submit">Salvar</button>
+                <button class="btn btn-danger" type="submit">Cancelar</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+    <%- include('./../layout/footer') %>

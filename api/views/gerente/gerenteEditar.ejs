@@ -1,0 +1,46 @@
+<%- include('./../layout/menu') %>
+
+    <form action="/gerentes/gravar" method="post">
+        <div class="row">
+
+            <div class="col-2">
+                <label class="form" for="ger_id">ID</label>
+                <input class="form-control" readonly value="<%= obj_gerente.ger_id %>" type="text" name="ger_id"
+                    id="ger_id" placeholder="ID do gerente">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="ger_nome">NOME</label>
+                <input class="form-control " max="30" value="<%= obj_gerente.ger_nome%>" type="text" name="ger_nome"
+                    id="ger_nome" placeholder="Nome do gerente">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="ger_apelido">APELIDO</label>
+                <input class="form-control " max="15" value="<%= obj_gerente.ger_apelido%>" type="text"
+                    name="ger_apelido" id="ger_apelido" placeholder="Apelido do gerente">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="ger_telefone">TELEFONE</label>
+                <input class="form-control " value="<%= obj_gerente.ger_telefone%>" type="text" name="ger_telefone"
+                    id="ger_telefone" max="20" placeholder="Telefone do gerente">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="ger_banco">BANCO</label>
+                <input class="form-control " max="15" value="<%= obj_gerente.ger_banco%>" type="text" name="ger_banco"
+                    id="ger_banco" placeholder="Banco do gerente">
+            </div>
+
+            <div class="col-11 mt-3">
+                <button class="btn btn-success" type="submit">Salvar</button>
+                <button class="btn btn-danger" type="submit">Cancelar</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+    <%- include('./../layout/footer') %>

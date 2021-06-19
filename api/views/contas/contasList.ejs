@@ -1,0 +1,63 @@
+<%- include('./../layout/menu') %>
+
+    <div class="row mb-2" style="background-color: rgba(255,255,255, 0.5) ;">
+        <h1 class="w-100 col-10">
+            <%= title %>
+        </h1>
+        <a class="btn btn-dark h-50 col-1 mt-2" href="/contas/nova">+ Nova</a>
+    </div>
+
+    <table class="bg-secondary w-100 table-hover">
+        <thead class="text-white m-2 text-center">
+            <tr>
+                <td class="p-2">ID</td>
+                <td>NRO CONTA</td>
+                <td>TIPO</td>
+                <td>SALDO</td>
+                <td>ABERTURA</td>
+                <td>GERENTE</td>
+                <td>ACOES</td>
+            </tr>
+        </thead>
+        <tbody class="text-white mx-2 text-center p-5">
+
+            <% for(i=0; i < obj_contas.length; i++) {%>
+                <tr>
+                    <td class="p-2 ">
+                        <%= obj_contas[i].cco_id %>
+                    </td>
+                    <td>
+                        <%= obj_contas[i].cco_nroconta %>
+                    </td>
+                    <td>
+                        <%= obj_contas[i].cco_tipo %>
+                    </td>
+                    <td>
+                        <%= obj_contas[i].cco_saldo %>
+                    </td>
+                    <td>
+                        <%= obj_contas[i].cco_abertura %>
+                    </td>
+                    <td>
+                        <%= obj_contas[i].ger_nome %>
+                    </td>
+                    <td>
+                        <a class="btn btn-success mt-2" href=<%="/contas/editar/" + obj_contas[i].cco_id %>>Editar</a>
+                        <a class="btn btn-danger mt-2" href=<%="/contas/apagar/" + obj_contas[i].cco_id %>>Apagar</a>
+                    </td>
+                </tr>
+                <% } %>
+
+
+        </tbody>
+
+        <tfoot>
+            <tr class="text-center text-secondary">
+                <th colspan="7">
+                    <%= title %>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <%- include('./../layout/footer') %>

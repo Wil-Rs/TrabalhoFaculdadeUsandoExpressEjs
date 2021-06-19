@@ -1,0 +1,70 @@
+<%- include('./../layout/menu') %>
+
+    <form action="/contas/gravar" method="post">
+        <div class="row">
+
+            <div class="col-5">
+                <label class="form" for="cco_id">ID</label>
+                <input class="form-control" readonly type="text" name="cco_id" id="cco_id" placeholder="ID da Conta">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_nroconta">NRO CONTRA</label>
+                <input class="form-control " max="30" type="text" name="cco_nroconta" id="cco_nroconta"
+                    placeholder="Nro da Conta">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_tipo">TIPO</label>
+                <!-- <input class="form-control " max="15" type="text" name="cco_tipo" id="cco_tipo"
+                    placeholder="Tipo de conta"> -->
+                <select class="form-control" name="cco_tipo" id="cco_tipo">
+                    <option value="CORRENTE">CORRENTE</option>
+                    <option value="POUPANÇA">POUPANÇA</option>
+                    <option value="SALÁRIO">SALÁRIO</option>
+                    <option value="CONJUNTA">CONJUNTA</option>
+                </select>
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_saldo">SALDO</label>
+                <input class="form-control " type="number" name="cco_saldo" id="cco_saldo" placeholder="Saldo da Conta">
+            </div>
+
+            <div class="col-11">
+                <label class="form" for="cco_abertura">ANO DE ABERTURA</label>
+                <input class="form-control " type="number" name="cco_abertura" id="cco_abertura"
+                    placeholder="Digite os ano de abertura">
+            </div>
+
+            <div class="col-11">
+                <label class="form mt-2" for="ger_id">GERENTE</label>
+
+                <!-- <input class="form-control" max="15" type="number" name="ger_id" id="ger_id"
+                    placeholder="ID do gerente"> -->
+
+
+                <select class="form-control" name="ger_id" id="ger_id">
+                    <% for( i of gerentes ) { %>
+                        <option value=" <%= i.ger_id %> ">
+                            <%= i.ger_nome %>
+                        </option>
+                        <% } %>
+                </select>
+
+
+
+
+            </div>
+
+            <div class="col-11 mt-3">
+                <button class="btn btn-success" type="submit">Salvar</button>
+                <a class="btn btn-danger" href="/contas">Cancelar</a>
+            </div>
+
+        </div>
+
+
+    </form>
+
+    <%- include('./../layout/footer') %>
