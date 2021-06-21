@@ -10,7 +10,7 @@ const getAllContas = (req, res) => {
 
         console.log(result)
         res.render('contas/contasList.ejs', {
-            title: "Listagem de Contas",
+            title: "LISTAGEM DE CONTAS",
             obj_contas: result
         })
     })

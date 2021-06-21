@@ -90,7 +90,7 @@ CREATE TABLE `contacorrente` (
   `ger_id` int DEFAULT NULL,
   PRIMARY KEY (`cco_id`),
   KEY `FK_GERENTE` (`ger_id`),
-  CONSTRAINT `FK_GERENTE` FOREIGN KEY (`ger_id`) REFERENCES `gerente` (`ger_id`)
+  CONSTRAINT `FK_GERENTE` FOREIGN KEY (`ger_id`) REFERENCES `gerente` (`ger_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

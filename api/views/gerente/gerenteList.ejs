@@ -7,7 +7,30 @@
         <a class="btn btn-dark h-50 col-1 mt-2" href="/gerentes/novo">+ Nova</a>
     </div>
 
-    <table class="bg-dark w-100 table-hover">
+    
+
+    <div class="row w-100" style="background-color: rgba(255,255,255, 0.5);">
+        <div class="col-1 mr-2">
+            <label class="" for="Procurar">PESQUISAR</label>
+        </div>
+        <div class="col-8 ml-2" id="teste">
+            <input class="w-100" type="search" name="procurar" list="lista" placeholder="Pesquisar" id="procurar">
+        </div>
+        <div class="">
+            <button class="btn-danger " id="bt" onclick="ir()">IR</button>
+            <a href="/gerentes" class="btn-success p-1" >Recarregar</a>
+        </div>
+    </div>
+
+    <datalist id="lista">
+        <% for(i=0; i < obj_gerentes.length; i++) {%>
+            <option value="<%= obj_gerentes[i].ger_nome %>"><%= obj_gerentes[i].ger_id %></option>
+        <% } %>
+    </datalist>
+
+   
+
+    <table class="bg-dark w-100 table-hover mt-5">
         <thead class="text-white m-2 text-center">
             <tr>
                 <td class="p-2">ID</td>
@@ -18,7 +41,7 @@
                 <td>ACOES</td>
             </tr>
         </thead>
-        <tbody class="text-white mx-2 text-center p-5">
+        <tbody id="tbody" class="text-white mx-2 text-center p-5">
 
             <% for(i=0; i < obj_gerentes.length; i++) {%>
                 <tr>
@@ -56,4 +79,47 @@
         </tfoot>
     </table>
 
+
+
+
+    <script>
+        const ir = (obj) => {
+            let procurar = document.getElementById('procurar')
+            // let list = document.getElementById('lista')
+            let tb = document.getElementById('tbody')
+            // let teste = document.getElementById('teste')
+
+            for(t of tb.children){
+                for(a of t.children){
+                    if( a.textContent.trim() == procurar.value.trim() ){
+                        console.log( t )
+                        return tb.innerHTML = t.innerHTML
+                    }
+                }
+            }
+            
+        }
+    </script>
+
+
+
+
     <%- include('./../layout/footer') %>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <div class="">
+        <label class="" for="Procurar">PESQUISAR</label>
+        <input class="w-100" type="search" name="Procurar" placeholder="Pesquisar" id="Procurar">
+        <button class="btn-danger">Ir</button>
+    </div> -->
