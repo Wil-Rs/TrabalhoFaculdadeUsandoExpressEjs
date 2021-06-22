@@ -1,6 +1,8 @@
 Para executar o sistema instale o banco (' express_gerente.sql '),
 nele conterá 2 tabelas e alguns dados.
 
+LEMBRANDO O BANCO DE DADOS DEVE SE CHAMAR   express
+
 O projeto ira rodas no porta 3000.
 
 instale os pacates com =>   npm i   ou   npm install

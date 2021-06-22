@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: express
+-- Host: 127.0.0.1    Database: express
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -19,6 +19,12 @@
 -- Table structure for table `gerente`
 --
 
+
+-- CREATE DATABASE express;
+-- use express;
+
+
+
 DROP TABLE IF EXISTS `gerente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -29,7 +35,7 @@ CREATE TABLE `gerente` (
   `ger_telefone` varchar(20) DEFAULT NULL,
   `ger_banco` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`ger_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,17 +57,19 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-19  0:24:56
+-- Dump completed on 2021-06-21 23:43:21
 
 
 
 
 
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+
+
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: express
+-- Host: 127.0.0.1    Database: express
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -91,7 +99,7 @@ CREATE TABLE `contacorrente` (
   PRIMARY KEY (`cco_id`),
   KEY `FK_GERENTE` (`ger_id`),
   CONSTRAINT `FK_GERENTE` FOREIGN KEY (`ger_id`) REFERENCES `gerente` (`ger_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-19  0:24:56
+-- Dump completed on 2021-06-21 23:43:21
